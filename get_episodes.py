@@ -1,3 +1,4 @@
+import json
 import requests
 
 
@@ -90,6 +91,9 @@ while all_episodes["has_next_page"]:
     all_episodes["has_next_page"] = next_episodes["has_next_page"]
 
 print(len(all_episodes["episodes"]), " episodes has been fetched.")
-print("Writing out a JSON file")
 
-open("episodes.json", "w").write(str(all_episodes["episodes"]).replace("'", '"'))
+# Save file
+print("Writing out a JSON file")
+with open('episodes.json', 'w', encoding='utf-8') as json_file:
+    json.dump(all_episodes["episodes"],
+              json_file, indent=4, ensure_ascii=False)
