@@ -90,6 +90,6 @@ while all_episodes["has_next_page"]:
     all_episodes["has_next_page"] = next_episodes["has_next_page"]
 
 print(len(all_episodes["episodes"]), " episodes has been fetched.")
-print("Riting out a JSON file")
+print("Writing out a JSON file")
 
 open("episodes.json", "w").write(str(all_episodes["episodes"]).replace("'", '"'))
